@@ -1,0 +1,84 @@
+/* Add all your styles here */
+body{
+ background: linear-gradient(to bottom right,rgb(30,30,30),rgb(40,40,40),rgb(50,50,50),rgb(20,20,20));
+ color: rgba(0,0,0,.5);
+}
+
+.head{
+ text-align: center;
+ line-height: 5px;
+ margin-top: 50px;
+ letter-spacing: 3px;
+}
+
+h1, h2{color: rgba(0,0,0,.7)}
+.head p{
+ font-size: 10px;
+}
+.rank{
+ margin-top: 50px;
+ text-align: center;
+}
+.rank img{
+  width: 50vw;
+}
+
+ .progress-bar {
+            width: 80vw;
+            height: 2px;
+            margin-left: 8vw;
+            background-color: black;
+            border-radius: 15px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar::before {
+            content: attr(data-progress) '%';
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            transform: translate(-50%, -50%);
+            font-size: 8px;
+            color: black;
+            z-index: 1;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: var(--progress-width);
+            height: 100%;
+            background-color: var(--progress-color);
+        }
+        
+.tasks{
+ margin-top: 50px;
+ padding: 20px;
+ background-color: rgba(0,0,0,.2);
+}
+.tasks div{
+ margin: 20px 0;
+ background-color: rgba(255,255,255,.07);
+ position: relative;
+ width: 60vw;
+ height: 60px;
+ padding: 0px 10px;
+ color: rgba(0,0,0,.8);
+ display: flex;
+ justify-content: center;
+}
+
+button { 
+ width: 15vw;
+ position: absolute;
+ right: -15vw;
+ top: 0px;
+ height: 60px;
+ border: none;
+ background: rgba(0,0,0,.1);
+ color: black;
+}
+
