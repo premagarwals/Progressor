@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
 <head>
-  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
-
     <meta charset="UTF-8">
-    <title>Student </title>
+    <title>Report</title>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+    <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Prem">
-    <meta name="description" content="hula">
+    <meta name="author" content="Prem Agarwal">
+    <meta name="description" content="something ">
     <meta name="keywords" content="programming hero, web playground">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
     
@@ -17,87 +17,53 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="form">  
- <div class="part">  
-  <h2> Homework </h2>
-   <p>HW completed in time </p>
-   <input type="radio" id="prop1A" name="prop1" value="1">
-  <label for="prop1A">Yes</label>
-  <input type="radio" id="prop1B" name="prop1" value="-1">
-  <label for="prop1B">No</label>
-  <input type="radio" id="prop1C" name="prop1" value="0">
-  <label for="prop1C">Neutral</label>
-   
-   <p>Full HW completed </p>
-   <input type="radio" id="prop2A" name="prop2" value="1">
-  <label for="prop2A">Yes</label>
-  <input type="radio" id="prop2B" name="prop2" value="-1">
-  <label for="prop2B">No</label>
-  <input type="radio" id="prop2C" name="prop2" value="0">
-  <label for="prop2C">Neutral</label>
-   
-   <p>Any extra HW done by himself </p>
-   <input type="radio" id="prop3A" name="prop3" value="1">
-  <label for="prop3A">Yes</label>
-  <input type="radio" id="prop3B" name="prop3" value="0">
-  <label for="prop3B">No</label>
-  
-   <p> Regular HW completion </p>
-   <input id="pro9" type="range" min="-2" max="2">
-   </div>
-   <div class="part">  
-  <h2> Behaviour </h2>
-   <p>Ready in time  </p> 
-   <input type="radio" id="prop4A" name="prop4" value="1">
-  <label for="prop4A">Yes</label>
-  <input type="radio" id="prop4B" name="prop4" value="-1">
-  <label for="prop4B">No</label>
-  <input type="radio" id="prop4C" name="prop4" value="0">
-  <label for="prop4C">Neutral</label>
-  
-   <p>Requested or suggested a chapter  </p>
-   <input type="radio" id="prop5A" name="prop5" value="1">
-  <label for="prop5A">Yes</label>
-  <input type="radio" id="prop5B" name="prop5" value="0">
-  <label for="prop5B">No</label>
-  
-   <p>Told task completed </p>
-   <input type="radio" id="prop6A" name="prop6" value="1">
-  <label for="prop6A">Yes</label>
-  <input type="radio" id="prop6B" name="prop6" value="-1">
-  <label for="prop6B">No</label>
-  <input type="radio" id="prop6C" name="prop6" value="0">
-  <label for="prop6C">Neutral</label>
-   <p>Asked all doubts [0,4] </p>
-   <input id="pro1" type="range" min="0" max="4">  
-   <p>No Irregularities [-2,2] </p>
-   <input id="pro2" type="range" min="-2" max="2">
-   <p>Responsive Interaction [-2,2] </p>
-   <input id="pro3" type="range" min="-2" max="2">
-   <p>Prepared for test [-2,2]</p>
-   <input id="pro4" type="range" min="-2" max="2">
+<div class="head">  
+<h1> PROGRESSOR </h1>
+<p> make progress, claim rewards. </p>
+</div>
+
+<div class="rank">  
+  <img id="image" src="images/favicon.ico">
+  <p> Points: <span id="Points">0</span></p>
+</div>
+
+<div class="data">  
+    <p> Brilliance: </p>
+    <div class="progress-bar" data-progress="50" style="--progress-color: #ff0000; --progress-width: calc(var(--progress) * 100%);"></div>
+    <p> Obedience: </p>
+    <div class="progress-bar" data-progress="75" style="--progress-color: #ff0000; --progress-width: calc(var(--progress) * 100%);"></div>
+    <p> Enthusiasm: </p>
+    <div class="progress-bar" data-progress="50" style="--progress-color: #ff0000; --progress-width: calc(var(--progress) * 100%);"></div>
+    <p> Learn-width: </p>
+    <div class="progress-bar" data-progress="50" style="--progress-color: #ff0000; --progress-width: calc(var(--progress) * 100%);"></div>
+    <p> Discipline: </p>
+    <div class="progress-bar" data-progress="50" style="--progress-color: #ff0000; --progress-width: calc(var(--progress) * 100%);"></div>
+</div>
+ 
+<div class="tasks">  
+ <h1>Task Giver</h1>
+
+  <div class="task">
+    <p id="Task1"></p>
+    <button onclick="claim(1)">Claim</button>
   </div>
-  <div class="part">  
-  <h2> Performance </h2>
-   <p> Answered correctly [-2,2]</p>
-   <input id="pro5" type="range" min="-2" max="2">
-   <p> Solved Critical thinking questions [-1,3]</p>
-   <input id="pro6" type="range" min="-1" max="3">
-   <p> Good marks in test [0,10]</p>
-   <input id="pro7" type="range" min="0" max="10">
-   <p> Remembered everything [-2,2]</p>
-   <input id="pro8" type="range" min="-2" max="2">
-   <p> Balancing </p>
-   <input id="pro10" type="range" min="-5" max="5">
+
+  <div class="task">
+    <p id="Task2"></p>
+    <button onclick="claim(2)">Claim</button>
   </div>
-  <button onclick="run()"> Analyse </button>
+
+  <div class="task">
+    <p id="Task3"></p>
+    <button onclick="claim(3)">Claim</button>
   </div>
+       
+</div>
 
 
 
 
 
 <!--main js-->
-<script src="js/main.js"></script>
 </body>
 </html>
