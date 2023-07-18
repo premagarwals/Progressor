@@ -1,8 +1,19 @@
 /* Add all your styles here */
-body{
- background: linear-gradient(to bottom right,rgb(30,30,30),rgb(40,40,40),rgb(50,50,50),rgb(20,20,20));
- color: rgba(0,0,0,.5);
+/*
+background: linear-gradient(to bottom right, hsl(25, 50%, 30%), hsl(25, 50%, 50%), hsl(25, 50%, 70%), hsl(25, 50%, 50%), hsl(25, 50%, 30%));
+background: linear-gradient(to bottom right, hsl(0, 0%, 55%), hsl(0, 0%, 75%), hsl(0, 0%, 95%), hsl(0, 0%, 65%), hsl(0, 0%, 55%)); er
+background: linear-gradient(to bottom right, hsl(38, 60%, 50%), hsl(40, 50%, 70%), hsl(40, 50%, 80%), hsl(40, 50%, 50%), hsl(40, 30%, 40%));
+background: linear-gradient(to bottom right, hsl(210, 30%, 60%), hsl(210, 30%, 70%), hsl(0, 0%, 100%), hsl(310, 10%, 60%), hsl(310, 10%, 50%));
+background: linear-gradient(to bottom right, hsl(0, 0%, 10%), hsl(0, 0%, 20%), hsl(0, 0%, 40%), hsl(0, 0%, 20%), hsl(0, 10%, 10%));
+*/
+#bodi {
+  background: linear-gradient(to bottom right, hsl(0, 0%, 40%), hsl(0, 0%, 60%), hsl(0, 0%, 90%), hsl(0, 0%, 60%), hsl(0, 10%, 40%));
+  text-align: center;
+  font-family: sans-serif;
 }
+
+
+
 
 .head{
  text-align: center;
@@ -11,7 +22,7 @@ body{
  letter-spacing: 3px;
 }
 
-h1, h2{color: rgba(0,0,0,.7)}
+h1, h2, h3{color: rgba(0,0,0,.7)}
 .head p{
  font-size: 10px;
 }
@@ -23,10 +34,54 @@ h1, h2{color: rgba(0,0,0,.7)}
   width: 50vw;
 }
 
+
+.data{
+margin-top: 30px;
+background-color: rgba(255,255,255,.1);
+padding: 20px 0;
+}
+.data p{
+  display: flex;
+  justify-content: center;
+}
+.data p span{
+      padding: 10px 15px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      width: 90px;
+      background: linear-gradient(45deg, hsl(10, 20%, 30%), hsl(10, 20%, 40%));
+      border-radius: 2px;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: light;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+   }
+
+    .data p span:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -10px;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0) 80%);
+      transform: skew(-20deg);
+      z-index: 1;
+    }
+#bril{background: linear-gradient(45deg, hsl(10, 100%, 30%), hsl(20, 80%, 50%));}
+#enth{background: linear-gradient(45deg, hsl(130, 20%, 30%), hsl(280, 20%, 50%));}
+#obed{background: linear-gradient(45deg, hsl(50, 20%, 20%), hsl(200, 20%, 50%));}
+#lwid{background: linear-gradient(45deg, hsl(180, 20%, 30%), hsl(130, 20%, 50%));}
+#disc{background: linear-gradient(45deg, hsl(280, 30%, 30%), hsl(170, 30%, 50%));}
+
  .progress-bar {
-            width: 80vw;
+            width: 45vw;
             height: 2px;
-            margin-left: 8vw;
+            margin-left: 20px;
+            margin-top: 10px;
             background-color: black;
             border-radius: 15px;
             position: relative;
@@ -37,7 +92,7 @@ h1, h2{color: rgba(0,0,0,.7)}
             content: attr(data-progress) '%';
             position: absolute;
             top: 50%;
-            left: -5%;
+            left: -6%;
             transform: translate(-50%, -50%);
             font-size: 8px;
             color: black;
@@ -81,4 +136,49 @@ button {
  background: rgba(0,0,0,.1);
  color: black;
 }
+
+#pts {
+  display: inline-block;
+  font-size: 10px;
+  width: 100px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  padding: 0px 30px;
+  background: linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%));
+  border: none;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-right: 4px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4), inset 0px 2px 0px rgba(255, 255, 255, 0.2);
+}
+
+#name {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  width: 160px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  padding: 10px;
+  background: linear-gradient(to bottom right, hsl(10, 100%, 30%), hsl(10, 100%, 50%), hsl(10, 100%, 70%), hsl(10, 100%, 50%), hsl(10, 100%, 30%));
+  border: none;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-right: 4px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: rgba(0,0,0,.3);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: light;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4), inset 0px 2px 0px rgba(255, 255, 255, 0.2);
+}
+
+
 
