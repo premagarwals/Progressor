@@ -1,3 +1,131 @@
+const questionList = [
+  // Light
+  "Do you know how light behaves as both a particle and a wave?",
+  "Do you know how different colors of light are produced and perceived?",
+  "Do you know how fiber optic cables revolutionized communication technology?",
+  "Do you know how fiber optic cables transmit information using light?",
+  "Do you know the actual science behind rainbow?",
+  "Do you know how polarized sunglasses reduce glare?",
+  // Energy
+  "Do you know how energy is stored and transferred in a battery?",
+  "Do you know how potential energy and kinetic energy are related?",
+  "Do you know how energy conservation plays a role in sustainable living?",
+  "Do you know how solar panels convert sunlight into electricity?",
+  "Do you know how energy is transformed in a wind turbine?",
+  // Sound
+  "Do you know how sound intensity is measured and its unit of measurement?",
+  "Do you know how sound waves are used in medical imaging technologies like ultrasounds?",
+  "Do you know how different musical instruments produce distinct sounds?",
+  "Do you know how sound travels through different mediums?",
+  "Do you know how noise-canceling headphones work?",
+  "Do you know how dolphins use echolocation to navigate and find prey?",
+  // Motion
+  "Do you know how the concept of inertia affects an object's motion?",
+  "Do you know how what's difference between average speed and instantaneous speed?",
+  "Do you know how friction makes objects move?",
+  "Do you know what factors affect the speed and acceleration of a moving object?",
+  "Do you know how the shape of a car affects its motion and fuel efficiency?",
+  "Do you know how to experience weightlessness in a lift?",
+  // Physical Quantity and Units
+  "Do you know how to convert between Celsius and Fahrenheit temperature scales?",
+  "Do you know how to calculate density using the mass and volume of an object?",
+  "Do you know how to measure the force using Newtons as the unit?",
+  "Do you know how to convert between different units, such as meters to kilometers?",
+  // Types of Chemical Reactions
+  "Do you know what happens during a combustion reaction?",
+  "Do you know how to identify a redox reaction?",
+  "Do you know how to neutralize an acid?",
+  // Atoms and Nucleus
+  "Do you know how to determine the number of protons, neutrons, and electrons in an atom?",
+  "Do you know how the arrangement of electrons in an atom influences its chemical properties?",
+  "Do you know how nuclear reactions differ from chemical reactions?",
+  "Do you know what subatomic particles make up an atom?",
+  "Do you know what an isotope is and how it differs from a regular atom?",
+  "Do you know what are nuclear fission and fusion reactions?",
+  // Chemical Bonding
+  "Do you know how metallic bonds contribute to the properties of metals?",
+  "Do you know how to draw Lewis dot structures for molecules and determine their bond types?",
+  "Do you know how intermolecular forces influence the boiling and melting points of substances?",
+  "Do you know what happens when an ionic bond is formed between two atoms?",
+  "Do you know how covalent bonds are different from ionic bonds?",
+  "Do you know what determines the strength of a chemical bond?",
+  // Chemistry in the Real World
+  "Do you know how chemistry is used in the production of fertilizers to improve crop yield?",
+  "Do you know how chemistry plays a role in food flavoring and preservation techniques?",
+  "Do you know how chemistry is involved in the creation of synthetic materials like plastics?",
+  "Do you know how chemistry is used in food preservation techniques?",
+  "Do you know how chemistry plays a role in developing new medications?",
+  "Do you know how chemistry is involved in water treatment processes?",
+  // Physics in the Real World
+  "Do you know how physics principles are used in designing efficient solar panels?",
+  "Do you know how physics concepts are applied in traffic engineering and optimizing transportation systems?",
+  "Do you know how physics helps us understand the behavior of waves in music and communication systems?",
+  "Do you know how physics principles are used in designing roller coasters?",
+  "Do you know how physics concepts are applied in designing bridges and buildings?",
+  "Do you know how physics is used in sports like cricket or soccer, so that the ball can change direction in between air?",
+  // Algebra
+  "Do you know how to simplify and evaluate expressions involving algebraic fractions?",
+  "Do you know how to solve inequalities and graph them on a number line?",
+  "Do you know how to solve equations using graph?",
+  // Exponents and Powers
+  "Do you know how to use the laws of exponents to simplify expressions with multiple exponents?",
+  "Do you know how to solve exponential equations involving variables?",
+  "Do you know how to express very large or very small numbers using scientific notation?",
+
+  // Integer, Fraction, and Decimals
+  "Do you know how to multiply and divide integers with different signs?",
+  "Do you know how to convert between improper fractions and mixed numbers?",
+  "Do you know how to perform operations on decimals, such as adding, subtracting, multiplying, and dividing?",
+  "Do you know how to multiply and divide numbers with exponents?",
+  "Do you know how to simplify expressions with negative exponents?",
+  "Do you know how to solve algebraic equations involving exponents?",
+  // Geometry
+  "Do you know how to calculate the volume and surface area of three-dimensional shapes like cylinders or cones?",
+  "Do you know how to use trigonometry to solve problems involving angles and side lengths in right triangles?",
+  "Do you know how to determine the properties of parallel lines, such as alternate interior angles or corresponding angles?",
+  "Do you know how to determine the angles in different types of polygons?",
+  "Do you know how to use the Pythagorean theorem to find the length of a side in a right triangle?",
+  "Do you know how to calculate volume of any material just by knowing the height and area of it's base?",
+  // Heat
+  "Do you know how heat is transferred through conduction, convection, and radiation?",
+  "Do you know how specific heat capacity affects the temperature change of a substance?",
+  "Do you know how heat engines, such as car engines, convert thermal energy into mechanical work?"
+];
+
+// Function to get a random index from the question list, excluding the given argument
+function getRandomIndex(except) {
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * questionList.length);
+  } while (randomIndex === except);
+  return randomIndex;
+}
+
+// Usage example
+const randomIndex = getRandomIndex(-1); // Provide a valid index to exclude, -1 for no exclusion
+const randomQuestion = questionList[randomIndex];
+
+window.addEventListener('DOMContentLoaded', function() {
+      var closeBtn = document.querySelector('.close-btn');
+      var popupCard = document.querySelector('.popup-card');
+      document.getElementById('que').innerHTML = randomQuestion;               
+      closeBtn.addEventListener('click', function() {
+        popupCard.style.display = 'none';
+        document.getElementById("back").style.display = "none";
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBDsxYYOOFBjpQZqY9G-YD-OOdfa9P9b2E",
   authDomain: "student-70de4.firebaseapp.com",
@@ -233,11 +361,12 @@ function pick(){
       };
     }
     function updateNums(){
-      Task1 = getRandomTaskId();
+      var rand = getRandomTasks(Task1, Task2, Task3, tasks);
+      Task1 = rand[0];
       writeValue('Task1', Task1);
-      Task2 = getRandomTaskId();
+      Task2 = rand[1];
       writeValue('Task2', Task2);
-      Task3 = getRandomTaskId();
+      Task3 = rand[2];
       writeValue('Task3', Task3);
     }
 
@@ -251,12 +380,27 @@ function pick(){
       document.getElementById("Points").textContent = Points;
     }
 
-    function getRandomTaskId() {
-      return Math.floor(Math.random() * tasks.length);
-    }
+    function getRandomTasks(arg1, arg2, arg3, task) {
+  var taskRange = task.length; // Assuming task is an existing list/array
+
+  // Create an array with all possible valid indexes
+  var validIndexes = Array.from({ length: taskRange }, (_, index) => index);
+
+  // Remove the three arguments from the valid indexes array
+  validIndexes = validIndexes.filter(index => index !== arg1 && index !== arg2 && index !== arg3);
+
+  // Shuffle the valid indexes array
+  validIndexes.sort(() => Math.random() - 0.5);
+
+  // Take the first three indexes from the shuffled array
+  var randomIndexes = validIndexes.slice(0, 3);
+
+  return randomIndexes;
+};
 
     function getPoints(taskText) {
       var pointsRegex = /\[(\d+)\]/;
       var match = taskText.match(pointsRegex);
       return match ? parseInt(match[1]) : 0;
         }
+
