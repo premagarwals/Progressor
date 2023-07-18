@@ -103,19 +103,27 @@ function pick(){
           console.log('value5:', value5);
           
           var img = document.getElementById('image');
+          var bodi = document.getElementById('bodi');
           if (Points > 300){
           img.src = "images/master.png";
+          bodi.style.background = "linear-gradient(to bottom right, hsl(0, 0%, 10%), hsl(0, 0%, 20%), hsl(0, 0%, 40%), hsl(0, 0%, 20%), hsl(0, 10%, 10%))";
           }
           else if (Points > 200){
           img.src = "images/crystal.png"
+          bodi.style.background = "linear-gradient(to bottom right, hsl(210, 30%, 60%), hsl(210, 30%, 70%), hsl(0, 0%, 100%), hsl(310, 10%, 60%), hsl(310, 10%, 50%))";
           }
           else if (Points > 120){
           img.src = "images/gold.png"
+          bodi.style.background = "linear-gradient(to bottom right, hsl(38, 60%, 50%), hsl(40, 50%, 70%), hsl(40, 50%, 80%), hsl(40, 50%, 50%), hsl(40, 30%, 40%))";
           }
           else if (Points > 60){
           img.src = "images/silver.png"
+          bodi.style.background = "linear-gradient(to bottom right, hsl(0, 0%, 55%), hsl(0, 0%, 75%), hsl(0, 0%, 95%), hsl(0, 0%, 65%), hsl(0, 0%, 55%))";
           }
-          else{img.src = "images/bronze.png"};
+          else{
+          img.src = "images/bronze.png"
+          bodi.style.background = "linear-gradient(to bottom right, hsl(25, 50%, 30%), hsl(25, 50%, 50%), hsl(25, 50%, 70%), hsl(25, 50%, 50%), hsl(25, 50%, 30%))";
+          };
           
           function setProgress(progress, progressBar) {
             progressBar.setAttribute('data-progress', progress);
@@ -214,14 +222,14 @@ function pick(){
         Points += points;
         writeValue('point',Points);
         writeValue(writ, 0);
-        alert("You have successfully claimed: "+taskText+", and "+points+" points are successfully added.");          
+        alert("Successfully hunted: "+taskText+".\n\n"+points+" badges are added successfully to your bag.");          
         updateNums();
         updateTasks();
         updatePoints();
         location.reload();
       }
       else{
-      alert("Looks like claiming isn't granted for this task.");
+      alert("Looks like you aren't enough prepared to hunt this down!");
       };
     }
     function updateNums(){
