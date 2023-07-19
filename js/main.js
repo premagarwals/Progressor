@@ -253,6 +253,16 @@ function pick(){
           bodi.style.background = "linear-gradient(to bottom right, hsl(25, 50%, 30%), hsl(25, 50%, 50%), hsl(25, 50%, 70%), hsl(25, 50%, 50%), hsl(25, 50%, 30%))";
           };
           
+          if (t1 === 1){
+          document.getElementById("but1").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
+          }
+          else if (t2 === 1){
+          document.getElementById("but2").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
+          }
+          else if (t3 === 1){
+          document.getElementById("but3").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
+          };
+          
           function setProgress(progress, progressBar) {
             progressBar.setAttribute('data-progress', progress);
             progressBar.style.setProperty('--progress', progress / 100);
