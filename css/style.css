@@ -40,11 +40,11 @@ background: linear-gradient(to bottom right, hsl(0, 0%, 10%), hsl(0, 0%, 20%), h
     .popup-card .close-btn {
       position: absolute;
       top: 80%;
-      right: 10px;
-      background-color: rgba(0,0,0,.4);
-      color: gray;
+      right: 5%;
+      background-color: rgba(0,0,0,.1);
+      color: rgba(0,0,0,.4);
       border: none;
-      width: 90px;
+      width: 28%;
       height: 30px;
       border-radius: 4px;
       font-size: 14px;
@@ -52,21 +52,27 @@ background: linear-gradient(to bottom right, hsl(0, 0%, 10%), hsl(0, 0%, 20%), h
       text-transform: uppercase;
       letter-spacing: 3px;
     }
-    #back{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0,0,0,.8);
-    z-index: 4;
-    top: 0;
-    left: 0;
+     .popup-card .cap {
+      position: absolute;
+      top: 80%;
+      left: 5%;
+      background-color: rgba(0,0,0,.1);
+      color: rgba(0,0,0,.4);
+      border: none;
+      height: 30px;
+      width: 57%;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
+    #back { overflow: hidden;/* Styling for the overlay */ position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 4; background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */ }
 body {
   background: linear-gradient(to bottom right, hsl(0, 0%, 40%), hsl(0, 0%, 60%), hsl(0, 0%, 90%), hsl(0, 0%, 60%), hsl(0, 10%, 40%));
   text-align: center;
   font-family: sans-serif;
   width: 100vw;
-  overflow-x: hidden;
 }
 
 
