@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
-    <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Prem Agarwal">
     <meta name="description" content="something ">
@@ -18,11 +18,12 @@
 </head>
 <body id="bodi">
   <div id="back">  </div>
-  <div class="popup-card">
+  <div class="popup-card" id="pop">
     <h2>Question Pass</h2>
     <p id="que">This is a demo question.</p>
     <button class="close-btn">Close</button>
-  </div>
+    <button class="cap" onclick="captureScreenshot()"> Get This Pass </button>
+ </div>
 <div class="head">  
 <h1> PROGRESSOR </h1>
 <p> make progress, claim rewards. </p>
@@ -77,6 +78,23 @@
 
 <!--main js-->
 <script>  
+function captureScreenshot() {
+      // Get the target division element
+      const division = document.getElementById('pop');
+
+      // Use html2canvas to capture a screenshot
+      html2canvas(division).then(function(canvas) {
+        // Convert the canvas to a data URL
+        const screenshotDataUrl = canvas.toDataURL();
+
+        // Create a temporary link element and click it to initiate the download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = screenshotDataUrl;
+        downloadLink.download = 'screenshot.png';
+        downloadLink.click();
+      });
+    }
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>
