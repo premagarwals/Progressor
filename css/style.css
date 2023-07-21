@@ -96,7 +96,13 @@ h1, h2, h3{color: rgba(0,0,0,.7)}
 .rank img{
   width: 50vw;
 }
-
+.hw{
+ width: 85vw;
+ background: rgba(0,0,0,.1);
+ padding: 20px 5vw;
+ margin-left: 0vw;
+ border-radius: 20px 20px 0 0;
+}
 
 .data{
 margin-top: 0px;
