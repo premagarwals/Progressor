@@ -144,7 +144,7 @@ const firebaseConfig = {
     var database = firebase.database();
 
     // Define the global variables
-    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3;
+    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw;
 
     function updateValues() {
       var val1 = 31;
@@ -203,6 +203,7 @@ function pick(){
           Task2 = snapshot.val().Task2;
           Task3 = snapshot.val().Task3;
           Points = snapshot.val().point;
+          hw = snapshot.val().hw;
           t1 = snapshot.val().t1;
           t2 = snapshot.val().t2;
           t3 = snapshot.val().t3;
@@ -229,7 +230,7 @@ function pick(){
           console.log('value3:', value3);
           console.log('value4:', value4);
           console.log('value5:', value5);
-          
+          document.getElementById("hw").innerHTML = hw;
           var img = document.getElementById('image');
           var bodi = document.getElementById('bodi');
           if (Points > 300){
