@@ -28,17 +28,36 @@
 <h1> PROGRESSOR </h1>
 <p> make progress, claim rewards. </p>
 </div>
+<div class="image-selector" onclick="showImageList()">
 
-<div class="rank">  
-  <img id="image" src="images/favicon.ico">
-</div>
-<div id="pts">  <p>BADGES HUNTED: <span id="Points">0</span></p> </div>
+    <img id="selected-image" src="images/img1b.jpg" alt="Selected Image">
+
+  </div>
+  <ul class="image-list" id="imageList" onclick="selectImage(event)">
+    <li><img src="images/img1b.jpg" alt="Image 1"></li>
+    <li><img src="images/img2b.jpg" alt="Image 2"></li>
+    <li><img src="images/img3b.jpg" alt="Image 3"></li>
+    <li><img src="images/img4s.jpg" alt="Image 4" class="disabled"></li>
+    <li><img src="images/img5s.jpg" alt="Image 5" class="disabled"></li>
+     <li><img src="images/img6s.jpg" alt="Image 6" class="disabled"></li>
+
+ <li><img src="images/img7g.jpg" alt="Image 7" class="disabled"></li>
+ <li><img src="images/img8g.jpg" alt="Image 8" class="disabled"></li>
+ <li><img src="images/img9g.jpg" alt="Image 9" class="disabled"></li>
+ <li><img src="images/img10c.jpg" alt="Image 10" class="disabled"></li>
+ <li><img src="images/img11c.jpg" alt="Image 11" class="disabled"></li>
+ <li><img src="images/img12c.jpg" alt="Image 12" class="disabled"></li>
+ <li><img src="images/img13m.jpg" alt="Image 13" class="disabled"></li>
+ <li><img src="images/img14m.jpg" alt="Image 14" class="disabled"></li>
+    
+  </ul>
 <div id="name"> GAURAV AGARWAL </div>
+
 <div class="hw">
 
     <h2> Homework Pending...</h2>
 
-    <p style="font-family: monospace;" id="hw"> Wait till we are fetching your homework.</p>
+    <p style="font-family: monospace;" id="hw"> Wait till we are fetching you homework.</p>
 </div>
 <div class="data">  
     <h3 style="padding: 0 10px; text-align: left; letter-spacing: 4px; border-left: 10px solid rgba(0,0,0,.7); margin: 30px 20px; font-size: 30px;"> JOURNEY </h3>
@@ -59,6 +78,13 @@
     </p>
 </div>
  
+ <div class="rank">  
+
+  <img id="image" src="images/favicon.ico">
+
+</div>
+<div id="pts">  <p>BADGES HUNTED: <span id="Points">0</span></p> </div>
+
 <div class="tasks">  
  <h3 style="padding: 0 10px; text-align: left; letter-spacing: 4px; border-left: 10px solid rgba(0,0,0,.7); margin: 30px 20px; font-size: 30px;"> BADGE HUNTER </h3>
   <div class="task">
@@ -77,9 +103,11 @@
   </div>
        
 </div>
-
-
-
+<div class="notes">
+    <h3 style="padding: 0 10px; text-align: left; letter-spacing: 4px; border-left: 10px solid rgba(0,0,0,.7); margin: 0px 20px; font-size: 30px;"> Blackboard </h3>
+    <textarea name="note" id="note" rows="8" cols="40"></textarea>
+    <button onclick="rewrite()"> Rewrite</button>
+</div>
 
 <!--main js-->
 <script>  
