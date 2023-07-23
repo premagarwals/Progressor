@@ -126,6 +126,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBDsxYYOOFBjpQZqY9G-YD-OOdfa9P9b2E",
   authDomain: "student-70de4.firebaseapp.com",
@@ -144,7 +147,7 @@ const firebaseConfig = {
     var database = firebase.database();
 
     // Define the global variables
-    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw;
+    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img;
 
     function updateValues() {
       var val1 = 31;
@@ -187,9 +190,6 @@ database.ref('data/' + key).once('value').then(function(snapshot) {
 
 console.log(getValue('1'));
 
-function pick(){
-  document.getElementById("dhan").innerHTML = getValue('var1');
-}
     function retrieveAndShowValues() {
       // Get the values from the "data" node
       database.ref('data').once('value')
@@ -207,7 +207,8 @@ function pick(){
           t1 = snapshot.val().t1;
           t2 = snapshot.val().t2;
           t3 = snapshot.val().t3;
-          
+          img = snapshot.val().img;
+          note = snapshot.val().note;
           
           
           // Convert the values to numbers
@@ -231,6 +232,8 @@ function pick(){
           console.log('value4:', value4);
           console.log('value5:', value5);
           document.getElementById("hw").innerHTML = hw;
+          document.getElementById("selected-image").src = img;
+          document.getElementById("note").value = note;
           var img = document.getElementById('image');
           var bodi = document.getElementById('bodi');
           if (Points > 300){
@@ -415,3 +418,62 @@ function pick(){
       return match ? parseInt(match[1]) : 0;
         }
 
+
+function showImageList() {
+  var imageList = document.getElementById("imageList");
+  if (imageList.style.display === "none") {
+    imageList.style.display = "block";
+  } else {
+    imageList.style.display = "none";
+  }
+}
+
+function selectImage(event) {
+  var clickedElement = event.target;
+  var imageList = document.getElementById("imageList");
+  
+  // Check if the click event originated from the image selector or the image list
+  var isInsideImageSelector = clickedElement.classList.contains("image-selector");
+  var isInsideImageList = clickedElement === imageList || imageList.contains(clickedElement);
+  
+  // If the clicked element is neither the image selector nor inside the image list, do nothing
+  if (!isInsideImageSelector && !isInsideImageList) {
+    return;
+  }
+  
+  // Find the closest image element in the list from the clicked element
+  var closestImage = clickedElement.closest("li").querySelector("img");
+  if (!closestImage) {
+    return; // Do nothing if the clicked element is not an image
+  }
+  
+  var isDisabled = closestImage.classList.contains("disabled");
+  
+  if (isDisabled) {
+    return; // Do nothing if the image is disabled
+  }
+
+  var selectedImage = closestImage.src;
+  document.getElementById("selected-image").src = selectedImage;
+  showImageList();
+  writeValue('img',selectedImage);
+}
+
+// Add a click event listener to the document to close the image list when clicking outside
+document.addEventListener("click", function (event) {
+  var imageList = document.getElementById("imageList");
+  var imageSelector = document.querySelector(".image-selector");
+
+  // Check if the click event originated from the image selector or the image list
+  var isInsideImageSelector = event.target === imageSelector || imageSelector.contains(event.target);
+  var isInsideImageList = event.target === imageList || imageList.contains(event.target);
+
+  if (!isInsideImageSelector && !isInsideImageList) {
+    imageList.style.display = "none";
+  }
+});
+
+function rewrite(){
+    var n = document.getElementById("note").value;
+    writeValue('note',n);
+}
