@@ -46,11 +46,10 @@
  <li><img src="images/img9g.jpg" alt="Image 9" class="disabled"></li>
  <li><img src="images/img10c.jpg" alt="Image 10" class="disabled"></li>
  <li><img src="images/img11c.jpg" alt="Image 11" class="disabled"></li>
- <li><img src="images/img15c.jpg" alt="Image 15" class="disabled"></li>
-<li><img src="images/img12c.jpg" alt="Image 12" class="disabled"></li>
+ <li><img src="images/img12c.jpg" alt="Image 12" class="disabled"></li>
  <li><img src="images/img13m.jpg" alt="Image 13" class="disabled"></li>
  <li><img src="images/img14m.jpg" alt="Image 14" class="disabled"></li>
- 
+    
   </ul>
 <div id="name"> GAURAV AGARWAL </div>
 
@@ -88,25 +87,25 @@
 <div class="display-bar bar1">
     <div class="item">
       <img src="images/coup4.png" alt="Item 1">
-      <p class="item-amount">0</p>
+      <p class="item-amount" id="xtnd">NIL</p>
     </div>
     <div class="item">
       <img src="images/coup5.png" alt="Item 2">
-      <p class="item-amount">0</p>
+      <p class="item-amount" id="frgv">NIL</p>
     </div>
     <div class="item">
       <img src="images/coup3.png" alt="Item 3">
-      <p class="item-amount">0</p>
+      <p class="item-amount" id="mini">NIL</p>
     </div>
   </div>
   <div class="display-bar">
     <div class="item">
       <img src="images/coup1.png" alt="Item 4">
-      <p class="item-amount">0</p>
+      <p class="item-amount" id="wild">NIL</p>
     </div>
     <div class="item">
       <img src="images/coup2.png" alt="Item 5">
-      <p class="item-amount">0</p>
+      <p class="item-amount" id="trch">NIL</p>
     </div>
     <div class="item">
       <img src="images/coup2.png" alt="Item 5" style="opacity: 0;">
@@ -138,8 +137,59 @@
     <button onclick="rewrite()"> Rewrite</button>
 </div>
 
-<!--main js-->
-<script>  
+  <div class="store-container">
+    <h3 style="padding: 0 10px; text-align: left; letter-spacing: 4px; border-left: 10px solid rgba(0,0,0,.7); margin: 20px 0px; font-size: 30px;"> TICKET STORE</h3>
+    <p>Buy anything you want!</p>
+    <div class="coin-box">Coins: <span id="coins">30</span></div>
+    <div class="grid-container">
+      <div class="items">
+        <img src="images/coup1.png" alt="Item 1">
+        <div class="item-info">
+          <div class="item-price">20 coins</div>
+          <button class="buy-button" onclick="buyItem(20,'wild')">Buy</button>
+        </div>
+      </div>
+      <div class="items">
+        <img src="images/coup2.png" alt="Item 2">
+        <div class="item-info">
+          <div class="item-price">20 coins</div>
+          <button class="buy-button" onclick="buyItem(20,'trch')">Buy</button>
+        </div>
+      </div>
+      <div class="items">
+        <img src="images/coup3.png" alt="Item 3">
+        <div class="item-info">
+          <div class="item-price">30 coins</div>
+          <button class="buy-button" onclick="buyItem(30,'mini')">Buy</button>
+        </div>
+      </div>
+      <div class="items">
+        <img src="images/coup4.png" alt="Item 4">
+        <div class="item-info">
+          <div class="item-price">30 coins</div>
+          <button class="buy-button" onclick="buyItem(30,'xtnd')">Buy</button>
+        </div>
+      </div>
+      <div class="items">
+        <img src="images/coup5.png" alt="Item 5">
+        <div class="item-info">
+          <div class="item-price">40 coins</div>
+          <button class="buy-button" onclick="buyItem(40,'frgv')">Buy</button>
+        </div>
+      </div>
+      <div class="items">
+        <!-- Empty grid -->
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="insufficientCoinsPopup">
+    <h2>Insufficient Coins!</h2>
+    <p>You don't have enough coins to buy this item.</p>
+    <button class="buy-button" onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
 function captureScreenshot() {
       // Get the target division element
       const division = document.getElementById('pop');
