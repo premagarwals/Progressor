@@ -147,25 +147,9 @@ const firebaseConfig = {
     var database = firebase.database();
 
     // Define the global variables
-    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img;
-
-    function updateValues() {
-      var val1 = 31;
-      var val2 = 46;
-      var val3 = 63;
-      var val4 = 92;
-      var val5 = 83;
-
-      // Set the values in the "data" node
-      database.ref('data').set({ val1, val2, val3, val4, val5 })
-        .then(() => {
-          console.log('Values updated successfully!');
-        })
-        .catch((error) => {
-          console.error('Error updating values:', error);
-        });
-    }
+    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img, mon, xtnd, frgv, mini, wild, trch;
     
+
 
 function writeValue(key,value) {
   database.ref('data/'+ key ).set(value)
@@ -203,12 +187,18 @@ console.log(getValue('1'));
           Task2 = snapshot.val().Task2;
           Task3 = snapshot.val().Task3;
           Points = snapshot.val().point;
+          mon = snapshot.val().coins;
           hw = snapshot.val().hw;
           t1 = snapshot.val().t1;
           t2 = snapshot.val().t2;
           t3 = snapshot.val().t3;
           img = snapshot.val().img;
           note = snapshot.val().note;
+          xtnd = snapshot.val().xtnd;
+          frgv = snapshot.val().frgv;
+          mini = snapshot.val().mini;
+          wild = snapshot.val().wild;
+          trch = snapshot.val().trch;
           
           
           // Convert the values to numbers
@@ -224,6 +214,12 @@ console.log(getValue('1'));
           t1 = Number(t1);
           t2 = Number(t2);
           t3 = Number(t3);
+          mon = Number(mon);
+          xtnd = Number(xtnd);
+          frgv = Number(frgv);
+          mini = Number(mini);
+          wild = Number(wild);
+          trch = Number(trch);
           
           console.log('Values from database:');
           console.log('value1:', value1);
@@ -234,6 +230,12 @@ console.log(getValue('1'));
           document.getElementById("hw").innerHTML = hw;
           document.getElementById("selected-image").src = img;
           document.getElementById("note").value = note;
+          document.getElementById("coins").textContent = mon;
+          document.getElementById("xtnd").textContent = xtnd;
+          document.getElementById("frgv").textContent = frgv;
+          document.getElementById("mini").textContent = mini;
+          document.getElementById("wild").textContent = wild;
+          document.getElementById("trch").textContent = trch;
           var img = document.getElementById('image');
           var bodi = document.getElementById('bodi');
           if (Points > 300){
@@ -362,6 +364,9 @@ console.log(getValue('1'));
       var points = getPoints(taskText);
       if (task === 1) {
         Points += points;
+        mon += points*0.4;
+        
+        writeValue('coins',mon);
         writeValue('point',Points);
         writeValue(writ, 0);
         alert("Successfully hunted: "+taskText+".\n\n"+points+" badges are added successfully to your bag.");          
@@ -476,4 +481,35 @@ document.addEventListener("click", function (event) {
 function rewrite(){
     var n = document.getElementById("note").value;
     writeValue('note',n);
-}
+};
+
+
+function updateCoinsDisplay() {
+
+      document.getElementById('coins').textContent = mon;
+      writeValue('coins',mon);
+    }
+
+    function buyItem(itemPrice,name) {
+      if (mon >= itemPrice) {
+          var amnt = Number(document.getElementById(name).innerHTML);
+        amnt = Number(amnt);
+        amnt = amnt + 1;
+        writeValue(name,amnt);
+        mon -= itemPrice;
+        updateCoinsDisplay();
+        location.reload();
+      } else {
+        displayInsufficientCoinsPopup();
+      }
+    }
+
+    function displayInsufficientCoinsPopup() {
+      const popup = document.getElementById('insufficientCoinsPopup');
+      popup.style.display = 'block';
+    }
+
+    function closePopup() {
+      const popup = document.getElementById('insufficientCoinsPopup');
+      popup.style.display = 'none';
+    }
