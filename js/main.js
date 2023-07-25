@@ -147,7 +147,7 @@ const firebaseConfig = {
     var database = firebase.database();
 
     // Define the global variables
-    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img, mon, xtnd, frgv, mini, wild, trch;
+    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img, mon, xtnd, frgv, mini, wild, trch, dates, CurrDates = new Date().toLocaleDateString();
     
 
 
@@ -199,6 +199,7 @@ console.log(getValue('1'));
           mini = snapshot.val().mini;
           wild = snapshot.val().wild;
           trch = snapshot.val().trch;
+          dates = snapshot.val().date;
           
           
           // Convert the values to numbers
@@ -236,6 +237,15 @@ console.log(getValue('1'));
           document.getElementById("mini").textContent = mini;
           document.getElementById("wild").textContent = wild;
           document.getElementById("trch").textContent = trch;
+          if (dates !== CurrDates){
+              document.getElementById("login").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
+              document.getElementById("login").onclick = function login(){
+                  Points += 2;
+                  writeValue('point',Points);
+                  writeValue('date',CurrDates);
+                  location.reload();
+              };
+          }
           var img = document.getElementById('image');
           var bodi = document.getElementById('bodi');
           if (Points > 300){
@@ -513,3 +523,4 @@ function updateCoinsDisplay() {
       const popup = document.getElementById('insufficientCoinsPopup');
       popup.style.display = 'none';
     }
+    
