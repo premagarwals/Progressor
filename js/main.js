@@ -243,7 +243,7 @@ console.log(getValue('1'));
                   Points += 2;
                   writeValue('point',Points);
                   writeValue('date',CurrDates);
-                  location.reload();
+                document.getElementById("login").id = "logout";
               };
           }
           var img = document.getElementById('image');
