@@ -374,7 +374,7 @@ console.log(getValue('1'));
       var points = getPoints(taskText);
       if (task === 1) {
         Points += points;
-        mon += points*0.4;
+        mon += points*0.25;
         
         writeValue('coins',mon);
         writeValue('point',Points);
