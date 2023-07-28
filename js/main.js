@@ -240,7 +240,7 @@ console.log(getValue('1'));
           if (dates !== CurrDates){
               document.getElementById("login").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
               document.getElementById("login").onclick = function login(){
-                  Points += 2;
+                  Points += 3;
                   writeValue('point',Points);
                   writeValue('date',CurrDates);
                   location.reload();
