@@ -410,7 +410,7 @@ max-width: 95vw;
       overflow: hidden;
     }
 
-.store-container::before {
+/*.store-container::before {
   content: "Reach\ASilver League\Ato unlock";
   white-space: pre;
   text-align: center;
@@ -430,7 +430,7 @@ max-width: 95vw;
   transform: rotate(-45deg);
   letter-spacing: 6px;
   z-index: 2;
-}
+}*/
 
 
     .coin-box {
