@@ -241,7 +241,9 @@ console.log(getValue('1'));
               document.getElementById("login").style.background = "linear-gradient(to bottom right, hsl(40, 100%, 30%), hsl(40, 100%, 50%), hsl(40, 100%, 70%), hsl(40, 100%, 50%), hsl(40, 100%, 30%))";
               document.getElementById("login").onclick = function login(){
                   Points += 3;
+                  mon += 1;
                   writeValue('point',Points);
+                  writeValue('coins',mon);
                   writeValue('date',CurrDates);
                   location.reload();
               };
