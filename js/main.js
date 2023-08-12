@@ -147,7 +147,9 @@ const firebaseConfig = {
     var database = firebase.database();
 
     // Define the global variables
-    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img, mon, xtnd, frgv, mini, wild, trch, dates, CurrDates = new Date().toLocaleDateString();
+    var value1, value2, value3, value4, value5, Task1, Task2, Task3, Points, t1, t2, t3, hw, img, mon, xtnd, frgv, mini, wild, trch, dates, CurrDates;
+    const date = new Date();
+    CurrDates = date.getDate(); 
     
 
 
